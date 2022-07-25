@@ -82,15 +82,17 @@ function buildCharts(sample) {
         var reversed_data = top10_yticks.reverse();
         // console.log(yticks);
         // console.log(top10_yticks);
+        console.log(sample_values);
+        console.log(reversed_data);
         
 
         // 8. Create the trace for the bar chart. 
         var trace = {
-        x: sample_values,
-        y: reversed_data,
-        name: "Bacteria",
-        type: 'bar',
-        orientation: 'h'
+            x: sample_values,
+            y: reversed_data,
+            name: "Bacteria",
+            type: 'bar',
+            orientation: 'h'
         };
 
         var bar_data = [trace]
