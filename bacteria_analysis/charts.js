@@ -86,21 +86,20 @@ function buildCharts(sample) {
       // 7. Create the yticks for the bar chart.
 
       // ***Somehow need to pair the otu_ids to the sample values, sort by sample values and then display the filtered otu_ids that were in correpsonding index spots as the sample values? And then do the same for bacteria type?????
-        var yticks = parseInt(otu_ids.sort((a,b)=>b-a));
-        var top10_yticks = yticks.slice(0,10);
-        var reversed_data = top10_yticks.reverse();
+        var yticks = otu_ids.map(obj => `OTU ${obj}`).slice(0,10);
+        console.log(yticks);
+        var reversed_data = yticks.reverse();
 
         // console.log(yticks);
         // console.log(top10_yticks);
-        console.log('Sample Values',sample_values);
-        console.log('Reversed Data',reversed_data);
-        
+        // console.log('Sample Values',sample_values);
+        // console.log('Reversed Data',reversed_data);
 
         // 8. Create the trace for the bar chart. 
         var trace = {
-            x: sample_values.sort((a,b)=>b-a).slice(0,10),
-            y: yticks.slice(0,10),
-            text: yticks,
+            x: sample_values.sort((a,b)=>b-a).slice(0,10).reverse(),
+            y: reversed_data,
+            text: reversed_data,
             name: "Bacteria",
             type: 'bar',
             orientation: 'h'
@@ -123,8 +122,8 @@ function buildCharts(sample) {
             mode: "markers",
             marker: {
                 size:sample_values,
-                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
-                colorscale: 5
+                color: otu_ids,
+                colorscale: "Earth"
             }
         }];
 
