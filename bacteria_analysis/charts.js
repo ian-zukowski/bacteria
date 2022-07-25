@@ -53,7 +53,7 @@ function buildMetadata(sample) {
         // for each key/value pair in the 'result' array:
         Object.entries(result).forEach(([key,value])=>{
             // append text to the #sample-metadata div -- this text USES BACKTICKS NOT APOSTROPHES to act as an f-string referencing the key+value
-            PANEL.append("h6").text(`${key.toUpperCase}: ${value}`);
+            PANEL.append("h6").text(`${key}: ${value}`);
         });
     });
 };
@@ -75,21 +75,22 @@ function buildCharts(sample) {
         var sample_values = result.sample_values;
         console.log(sample_values);
   
-    //   // 7. Create the yticks for the bar chart.
-    //   // Hint: Get the the top 10 otu_ids and map them in descending order  
-    //   //  so the otu_ids with the most bacteria are last. 
+      // 7. Create the yticks for the bar chart.
+      // Hint: Get the the top 10 otu_ids and map them in descending order  
+      //  so the otu_ids with the most bacteria are last. 
   
-    //   var yticks = 
+      var yticks = otu_ids.sort((a,b)=>b-a).slice(0,10);
+      console.log(y_ticks);
   
-    //   // 8. Create the trace for the bar chart. 
-    //   var barData = [
+      // 8. Create the trace for the bar chart. 
+      var barData = [
         
-    //   ];
-    //   // 9. Create the layout for the bar chart. 
-    //   var barLayout = {
+      ];
+      // 9. Create the layout for the bar chart. 
+      var barLayout = {
        
-    //   };
-    //   // 10. Use Plotly to plot the data with the layout. 
+      };
+      // 10. Use Plotly to plot the data with the layout. 
       
     });
   };
