@@ -53,7 +53,7 @@ function buildMetadata(sample) {
         // for each key/value pair in the 'result' array:
         Object.entries(result).forEach(([key,value])=>{
             // append text to the #sample-metadata div -- this text USES BACKTICKS NOT APOSTROPHES to act as an f-string referencing the key+value
-            PANEL.append("h6").text(`${key}: ${value}`);
+            PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
         });
     });
 };
@@ -101,6 +101,9 @@ function buildCharts(sample) {
             y: reversed_data,
             text: reversed_data,
             name: "Bacteria",
+            marker:{
+                color: "Green"
+            },
             type: 'bar',
             orientation: 'h'
         };
@@ -110,6 +113,7 @@ function buildCharts(sample) {
         // 9. Create the layout for the bar chart. 
         var barLayout = {
             title: "Top 10 Bacteria Cultures Found",
+            barcolor: "Red"           
         };
         // 10. Use Plotly to plot the data with the layout. 
         Plotly.newPlot("bar",bar_data,barLayout);
