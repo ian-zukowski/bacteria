@@ -82,27 +82,28 @@ function buildCharts(sample) {
         var reversed_data = top10_yticks.reverse();
         // console.log(yticks);
         // console.log(top10_yticks);
-  
-      // 8. Create the trace for the bar chart. 
-      var trace = {
+        
+
+        // 8. Create the trace for the bar chart. 
+        var trace = {
         x: sample_values,
         y: reversed_data,
         name: "Bacteria",
         type: 'bar',
         orientation: 'h'
-      };
+        };
 
-      var bar_data = [trace]
+        var bar_data = [trace]
 
-      // 9. Create the layout for the bar chart. 
-      var barLayout = {
-        title: "Top 10 Bacteria Cultures Found"
-      };
-      // 10. Use Plotly to plot the data with the layout. 
-      Plotly.newPlot("plot",bar_data,bar_layout);
+        // 9. Create the layout for the bar chart. 
+        var barLayout = {
+            title: "Top 10 Bacteria Cultures Found"
+        };
+        // 10. Use Plotly to plot the data with the layout. 
+        Plotly.newPlot("plot",bar_data,bar_layout);
     });
-  };
+};
   
-  
+
 // Initialize the page with init function
 init();
